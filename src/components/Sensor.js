@@ -1,15 +1,15 @@
 import React from 'react'
-import { Col } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
+import Data from './Data';
 
 const Sensor = ({ id, averageTemperature, medianTemperature, modeTemperature }) => {
-
   const sensorId = `Sensor ${id}`
   return (
-    <Col sm="12" md="4">
+    <Col md="4" sm="12">
       <h1 className="text-center">{sensorId}</h1>
-      <p>Average Temperature: {averageTemperature}</p>
-      <p>Median Temperature: {medianTemperature}</p>
-      <p>Mode Temperature: {modeTemperature}</p>
+      <Data title="Average" data={averageTemperature} />
+      <Data title="Median" data={medianTemperature} />
+      <Data title="Mode" data={modeTemperature} />
     </Col>
   )
 }
