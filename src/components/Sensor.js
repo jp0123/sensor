@@ -1,5 +1,6 @@
 import React from 'react'
 import calculateAverage from '../utility/calculateAverage';
+import calculateMedian from '../utility/calculateMedian';
 
 const Sensor = data => {
   const sensorDataById = data.data;
@@ -9,11 +10,13 @@ const Sensor = data => {
     temperatureArray.push(element.temperature);
   })
   const averageTemperature = calculateAverage(temperatureArray);
+  const medianTemperature = calculateMedian(temperatureArray);
 
   return (
     <div>
       <h1>{sensorId}</h1>
       <h2>Average Temperature: {averageTemperature}</h2>
+      <h2>Median Temperature: {medianTemperature}</h2>
     </div>
   )
 }
