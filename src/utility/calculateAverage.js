@@ -1,4 +1,3 @@
-
 const calculateAverage = (arrayOfData) => {
   const sumOfData = arrayOfData.reduce((accumulator, currentValue) => {
     return accumulator + currentValue;
