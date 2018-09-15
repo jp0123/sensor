@@ -17,7 +17,7 @@ const calculateMode = (arrayOfData) => {
       }
     }
   }
-  return modeValues.join(', ');
+  return modeValues
 }
 
 export default calculateMode;
