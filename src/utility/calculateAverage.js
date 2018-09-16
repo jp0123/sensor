@@ -3,8 +3,8 @@ const calculateAverage = (arrayOfData) => {
     return accumulator + currentValue;
   })
   const numberOfDataEntries = arrayOfData.length;
-  const averageValue = (sumOfData / numberOfDataEntries);
-  return averageValue.toFixed(2);
+  const averageValue = (sumOfData / numberOfDataEntries).toFixed(2);
+  return Number(averageValue);
 }
 
 export default calculateAverage;
