@@ -8,7 +8,8 @@ The sensors collect temperature data from fridges in supermarkets.
 
 # Table Of Contents
 * [Overview](#overview)
-* [Application setup](#application-setup)
+* [Application Setup](#application-setup)
+* [Application Testing](#application-testing)
 * [Application](#application)
   * [App flow](#app-flow)
   * [Data](#data)
@@ -42,6 +43,13 @@ To set up and run the application please:
 3. `npm run start` in the root directory to run the app locally (localhost:3000).
 
 Note: no environment variables are required.
+
+# Application Testing
+
+To run tests on the application please:
+* `npm run test` in the root directory
+
+Jest tests have been set up for the utility functions. 
 
 # Application
 
