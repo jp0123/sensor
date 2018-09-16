@@ -1,15 +1,33 @@
 import React from 'react'
+import {
+  Col, Card, Button, CardHeader, CardBody,
+  CardTitle
+} from 'reactstrap';
+import Data from './Data';
 
 const Sensor = ({ id, averageTemperature, medianTemperature, modeTemperature }) => {
+  const sensorId = `Sensor ${id}`;
+  const infoType = `Temperature`;
+  const infoTitleAverage = `Average`;
+  const infoTitleMedian = `Median`;
+  const infoTitleMode = `Mode`;
+  const cardButtonTitle = `Details`
 
-  const sensorId = `Sensor ${id}`
   return (
-    <div>
-      <h1>{sensorId}</h1>
-      <h2>Average Temperature: {averageTemperature}</h2>
-      <h2>Median Temperature: {medianTemperature}</h2>
-      <h2>Mode Temperature: {modeTemperature}</h2>
-    </div>
+    <Col md="4" sm="12">
+      <Card className="sensor-card">
+        <CardHeader tag="h3" className="text-headers text-center sensor-header">{sensorId}</CardHeader>
+        <CardBody>
+          <CardTitle className="text-headers sensor-info-title">{infoType}</CardTitle>
+          <Data title={infoTitleAverage} data={averageTemperature} />
+          <Data title={infoTitleMedian} data={medianTemperature} />
+          <Data title={infoTitleMode} data={modeTemperature} />
+          <div className="sensor-button-container">
+            <Button className="sensor-details-button">{cardButtonTitle}</Button>
+          </div>
+        </CardBody>
+      </Card>
+    </Col>
   )
 }
 
