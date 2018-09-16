@@ -132,9 +132,9 @@ Specifically, within the scope of this application, the components and props, en
 Although, this was not a requirement, I wanted to build an application that could potentially be used by users. Therefore, a simple MVP was built. 
 
 ### Notes
-Within the application, I tried to apply "self documenting" code as much as possible, so other develoeprs can easily and quickly understand it and further develop it if needed. On top of this, it keeps the application clean and efficient. 
+Within the application, I tried to apply "self documenting" code as much as possible, so other develoeprs can easily and quickly understand it and further develop it if needed. On top of this, it keeps the application clean and efficient. In areas that I felt could use a little more explanation, comments were left. 
 
-In areas that I felt could use a little more explanation, comments were left. 
+The buttons on the sensor cards serve no functionality at the moment. In the future, they are intended to show details of the specific sensor in greater detail. For now, they are there as a visual aid.
 
 ### Dependencies
 This application uses Bootstrap and Reactstrap. They were used to build a great user interface that is also responsive. 
