@@ -19,7 +19,7 @@ const Dashboard = () => {
   return (
     <div>
       <div className="dashboard-header">
-        <h1 className="text-center"> Sensor Dashboard </h1>
+        <h1 className="text-center text-headers"> Sensor Dashboard </h1>
       </div>
       <Container>
         <Row>

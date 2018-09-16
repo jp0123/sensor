@@ -7,10 +7,28 @@ body {
   background-color: #fff;
 }
 
+.text-headers {
+  color: #434343;
+}
+
+/** DASHBOARD COMPONENT **/
 .dashboard-header {
   background-color:#2A94E5;
   padding-top: 2.5vh;
   padding-bottom: 2.5vh;
   margin-bottom: 2.5vh;
-  color: #434343;
+}
+
+/** SENSOR COMPONENT **/
+.sensor-button-container {
+  text-align: center;
+}
+
+.sensor-details-button {
+  background-color: #2A94E5 !important; 
+  border-color: #2A94E5 !important;
+}
+
+.sensor-details-button:hover {
+  background-color: #187AC4 !important; 
 }
