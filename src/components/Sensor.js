@@ -6,22 +6,26 @@ import {
 import Data from './Data';
 
 const Sensor = ({ id, averageTemperature, medianTemperature, modeTemperature }) => {
-  const sensorId = `Sensor ${id}`
-  const infoType = `Temperature`
+  const sensorId = `Sensor ${id}`;
+  const infoType = `Temperature`;
+  const infoTitleAverage = `Average`;
+  const infoTitleMedian = `Median`;
+  const infoTitleMode = `Mode`;
+
   return (
     <Col md="4" sm="12">
-      <Card>
+      <Card className="sensor-card">
         <CardHeader tag="h3" className="text-headers text-center">{sensorId}</CardHeader>
         <CardBody>
           <CardTitle>{infoType}</CardTitle>
           <CardText>
-            <Data title="Average" data={averageTemperature} />
+            <Data title={infoTitleAverage} data={averageTemperature} />
           </CardText>
           <CardText>
-            <Data title="Median" data={medianTemperature} />
+            <Data title={infoTitleMedian} data={medianTemperature} />
           </CardText>
           <CardText>
-            <Data title="Mode" data={modeTemperature} />
+            <Data title={infoTitleMode} data={modeTemperature} />
           </CardText>
           <div className="sensor-button-container">
             <Button className="sensor-details-button">Details</Button>

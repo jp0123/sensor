@@ -16,10 +16,13 @@ body {
   background-color:#2A94E5;
   padding-top: 2.5vh;
   padding-bottom: 2.5vh;
-  margin-bottom: 2.5vh;
 }
 
 /** SENSOR COMPONENT **/
+.sensor-card {
+  margin-top: 2.5vh;
+}
+
 .sensor-button-container {
   text-align: center;
 }
