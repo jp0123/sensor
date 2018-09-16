@@ -13,7 +13,7 @@ const calculateMode = (arrayOfData) => {
   if (highestValue > 1) { // Execute only if data repeats
     for (let key in counter) {
       if (counter[key] === highestValue) {
-        modeValues.push(key);
+        modeValues.push(Number(key));
       }
     }
   }
