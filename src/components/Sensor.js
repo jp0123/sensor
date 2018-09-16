@@ -11,6 +11,7 @@ const Sensor = ({ id, averageTemperature, medianTemperature, modeTemperature }) 
   const infoTitleAverage = `Average`;
   const infoTitleMedian = `Median`;
   const infoTitleMode = `Mode`;
+  const cardButtonTitle = `Details`
 
   return (
     <Col md="4" sm="12">
@@ -28,7 +29,7 @@ const Sensor = ({ id, averageTemperature, medianTemperature, modeTemperature }) 
             <Data title={infoTitleMode} data={modeTemperature} />
           </CardText>
           <div className="sensor-button-container">
-            <Button className="sensor-details-button">Details</Button>
+            <Button className="sensor-details-button">{cardButtonTitle}</Button>
           </div>
         </CardBody>
       </Card>
