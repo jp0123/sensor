@@ -17,12 +17,16 @@ const Dashboard = () => {
   })
 
   return (
-    <Container>
-      <h1 className="text-center"> Sensor Dashboard </h1>
-      <Row>
-        {sensorIndexItem}
-      </Row>
-    </Container>
+    <div>
+      <div className="dashboard-header">
+        <h1 className="text-center"> Sensor Dashboard </h1>
+      </div>
+      <Container>
+        <Row>
+          {sensorIndexItem}
+        </Row>
+      </Container>
+    </div>
   )
 }
 
