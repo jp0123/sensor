@@ -15,7 +15,7 @@ const calculateMedian = (arrayOfData) => {
   } else {
     medianValue = medianCalculationForOddArray(orderedArray, middlePoint);
   };
-  return medianValue;
+  return Number(medianValue);
 }
 
 const medianCalculationForEvenArray = (sortedArray, middlePoint) => {
