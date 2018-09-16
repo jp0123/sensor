@@ -2,17 +2,28 @@ import React from 'react'
 import { Row, Col, CardText } from 'reactstrap'
 
 const Data = ({ title, data }) => {
+  let modifiedArrayData;
+  let dataTitle = title;
+  let dataValue = data;
+
+  if (Array.isArray(data)) {
+    const arrayOfData = data;
+    if (arrayOfData.length > 1) {
+      modifiedArrayData = arrayOfData.join(', ')
+      dataValue = false;
+    }
+  }
 
   return (
     <Row>
       <Col xs="5">
         <CardText className="data-info-text data-info-title text-headers">
-          {title}
+          {dataTitle}
         </CardText>
       </Col>
       <Col xs="7">
         <CardText className="data-info-text data-info-value">
-          {data}
+          {dataValue || modifiedArrayData}
         </CardText>
       </Col>
     </Row>
