@@ -7,7 +7,7 @@ const Data = ({ title, data }) => {
   let dataValue = data;
 
   if (Array.isArray(data)) {
-    const arrayOfData = data;
+    const arrayOfData = dataValue;
     if (arrayOfData.length > 1) {
       modifiedArrayData = arrayOfData.join(', ')
       dataValue = false;
