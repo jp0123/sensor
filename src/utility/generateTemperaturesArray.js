@@ -1,7 +1,8 @@
 const generateTemperaturesArray = (arrayOfData) => {
   const temperaturesArray = [];
   arrayOfData.forEach(data => {
-    temperaturesArray.push(data.temperature);
+    const temperature = (data.temperature).toFixed(2);
+    temperaturesArray.push(Number(temperature));
   });
   return temperaturesArray;
 }
