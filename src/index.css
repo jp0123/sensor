@@ -16,6 +16,7 @@ body {
   background-color:#2A94E5;
   padding-top: 2.5vh;
   padding-bottom: 2.5vh;
+  font-size: 2.5rem;
 }
 
 /** SENSOR COMPONENT **/
@@ -23,8 +24,17 @@ body {
   margin-top: 2.5vh;
 }
 
+.sensor-header {
+  font-size: 2rem;
+}
+
+.sensor-info-text {
+  font-size: 1.25rem;
+}
+
 .sensor-button-container {
   text-align: center;
+  margin-top: 1rem;
 }
 
 .sensor-details-button {
@@ -34,4 +44,19 @@ body {
 
 .sensor-details-button:hover {
   background-color: #187AC4 !important; 
+}
+
+/** DATA COMPONENT **/
+
+.data-info-text {
+  color: #767676;
+  font-size: 1.15rem;
+}
+
+.data-info-title {
+  font-weight: bold;
+}
+
+.data-info-value {
+  text-align: center;
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import {
   Col, Card, Button, CardHeader, CardBody,
-  CardTitle, CardText
+  CardTitle
 } from 'reactstrap';
 import Data from './Data';
 
@@ -16,18 +16,12 @@ const Sensor = ({ id, averageTemperature, medianTemperature, modeTemperature }) 
   return (
     <Col md="4" sm="12">
       <Card className="sensor-card">
-        <CardHeader tag="h3" className="text-headers text-center">{sensorId}</CardHeader>
+        <CardHeader tag="h3" className="text-headers text-center sensor-header">{sensorId}</CardHeader>
         <CardBody>
-          <CardTitle>{infoType}</CardTitle>
-          <CardText>
-            <Data title={infoTitleAverage} data={averageTemperature} />
-          </CardText>
-          <CardText>
-            <Data title={infoTitleMedian} data={medianTemperature} />
-          </CardText>
-          <CardText>
-            <Data title={infoTitleMode} data={modeTemperature} />
-          </CardText>
+          <CardTitle className="text-headers sensor-info-title">{infoType}</CardTitle>
+          <Data title={infoTitleAverage} data={averageTemperature} />
+          <Data title={infoTitleMedian} data={medianTemperature} />
+          <Data title={infoTitleMode} data={modeTemperature} />
           <div className="sensor-button-container">
             <Button className="sensor-details-button">{cardButtonTitle}</Button>
           </div>
