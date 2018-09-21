@@ -1,36 +1,32 @@
-import { sensorA, sensorB, sensorC } from "./sensorData";
+import data from "./sensorData";
+import Sensor from "../classes/Sensor";
+import determineDataSetIds from "../utility/determineDataSetIds";
 import calculateAverage from "../utility/calculateAverage";
 import calculateMedian from "../utility/calculateMedian";
 import calculateMode from "../utility/calculateMode";
 import generateTemperaturesArray from "../utility/generateTemperaturesArray";
 
-const sensorDataOverview = [];
+// Organise data set by sensor ID
+const sensorDataById = []; // Contains an array of objects that contain sensor id specific data
+const sensorIds = determineDataSetIds(data); // Array of unique ids
+sensorIds.forEach(id => {
+  const sensorData = data.filter(sensor => {
+    return sensor.id === id;
+  })
+  sensorDataById.push(sensorData);
+});
 
-// Sensor A
-const sensorAData = {};
-const temperatureDataSensorA = generateTemperaturesArray(sensorA)
-sensorAData.id = sensorA[0].id;
-sensorAData.average = calculateAverage(temperatureDataSensorA);
-sensorAData.median = calculateMedian(temperatureDataSensorA);
-sensorAData.mode = calculateMode(temperatureDataSensorA);
-
-// Sensor B
-const sensorBData = {};
-const temperatureDataSensorB = generateTemperaturesArray(sensorB)
-sensorBData.id = sensorB[0].id;
-sensorBData.average = calculateAverage(temperatureDataSensorB);
-sensorBData.median = calculateMedian(temperatureDataSensorB);
-sensorBData.mode = calculateMode(temperatureDataSensorB);
-
-// Sensor C
-const sensorCData = {};
-const temperatureDataSensorC = generateTemperaturesArray(sensorC)
-sensorCData.id = sensorC[0].id;
-sensorCData.average = calculateAverage(temperatureDataSensorC);
-sensorCData.median = calculateMedian(temperatureDataSensorC);
-sensorCData.mode = calculateMode(temperatureDataSensorC);
-
-// Create modified sensor data
-sensorDataOverview.push(sensorCData, sensorAData, sensorBData);
+// Output sensor overview 
+const sensorDataOverview = []; // Contains each sensor's id, average, median and mode values
+sensorDataById.forEach(sensor => {
+  const sensorId = sensor[0].id;
+  const temperatures = generateTemperaturesArray(sensor);
+  sensorDataOverview.push(new Sensor(
+    sensorId,
+    calculateAverage(temperatures),
+    calculateMedian(temperatures),
+    calculateMode(temperatures)
+  ));
+})
 
 export default sensorDataOverview;
