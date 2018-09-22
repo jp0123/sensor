@@ -17,7 +17,7 @@ sensorIds.forEach(id => {
 });
 
 // Output sensor overview 
-const sensorDataOverview = []; // Contains each sensor's id, average, median and mode values
+let sensorDataOverview = []; // Contains each sensor's id, average, median and mode values
 sensorDataById.forEach(sensor => {
   const sensorId = sensor[0].id;
   const temperatures = generateTemperaturesArray(sensor);
@@ -28,5 +28,27 @@ sensorDataById.forEach(sensor => {
     calculateMode(temperatures)
   ));
 })
+
+sensorDataOverview = sortSensorDataOverviewByPriority(sensorDataOverview);
+
+function sortSensorDataOverviewByPriority(arrayOfSensors) {
+  const sortedArray = arrayOfSensors.sort((a, b) => {
+    const prioritySensors = ["c", "a", "b"];
+    const prioritySensorsArrayLength = prioritySensors.length; // Required to ensure sorting continues to work if more priority sensors are added to the list
+    const sensorA = a.id;
+    const sensorB = b.id;
+    let priorityLevelA = prioritySensors.indexOf(sensorA);
+    let priorityLevelB = prioritySensors.indexOf(sensorB);
+
+    // indexOf() returns -1 if element is not found in array. This affects .sort().
+    if (priorityLevelA === -1) { priorityLevelA = prioritySensorsArrayLength; };
+    if (priorityLevelB === -1) { priorityLevelB = prioritySensorsArrayLength; };
+    // Sorting procedure
+    if (priorityLevelA < priorityLevelB) { return -1 };
+    if (priorityLevelA > priorityLevelB) { return 1 };
+    return 0;
+  });
+  return sortedArray;
+}
 
 export default sensorDataOverview;
