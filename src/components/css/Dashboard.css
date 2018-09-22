@@ -1,7 +1,10 @@
-.dashboard-header {
+.dashboard-header-background {
   background-color:#2A94E5;
   padding-top: 2.5vh;
   padding-bottom: 2.5vh;
+}
+
+.dashboard-header {
   font-size: 2.5rem;
 }
 

@@ -19,8 +19,8 @@ const Dashboard = () => {
 
   return (
     <div>
-      <div className="dashboard-header">
-        <h1 className="text-center text-headers"> Sensor Dashboard </h1>
+      <div className="dashboard-header-background">
+        <h1 className="text-center text-headers dashboard-header"> Sensor Dashboard </h1>
       </div>
       <Container>
         <Row>
