@@ -1,5 +1,6 @@
-import React from 'react'
-import { Row, Col, CardText } from 'reactstrap'
+import React from 'react';
+import { Row, Col, CardText } from 'reactstrap';
+import "./css/Data.css";
 
 const Data = ({ title, data }) => {
   let modifiedArrayData;
