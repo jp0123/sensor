@@ -1,7 +1,8 @@
 import React from 'react';
 import Sensor from './Sensor';
-import sensorDataOverview from '../data/sensorDataOverview'
+import sensorDataOverview from '../data/sensorDataOverview';
 import { Container, Row } from 'reactstrap';
+import "./css/Dashboard.css";
 
 const Dashboard = () => {
   const sensorIndexItem = sensorDataOverview.map(sensor => {
