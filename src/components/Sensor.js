@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
 import {
   Col, Card, Button, CardHeader, CardBody,
   CardTitle
 } from 'reactstrap';
 import Data from './Data';
+import "./css/Sensor.css";
 
 const Sensor = ({ id, averageTemperature, medianTemperature, modeTemperature }) => {
   const sensorId = `Sensor ${id}`;
