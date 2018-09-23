@@ -1,6 +1,6 @@
 # Sensor Dashboard
 
-A dashboard that displays an overview of sensor information. Specifically, temperature average, median, and mode are rendered.
+A dashboard that displays an overview of sensor information. Specifically, the temperature average, median, and mode are rendered.
 
 The sensors collect temperature data from fridges in supermarkets.
 
@@ -14,6 +14,7 @@ The sensors collect temperature data from fridges in supermarkets.
   * [App flow](#app-flow)
   * [Data](#data)
   * [Utility functions](#utility-functions)
+  * [Classes](#classes)
 * [Documentation](#documentation)
   * [Assumptions](#assumptions)
   * [Design decisions](#design-decisions)
@@ -61,16 +62,16 @@ The application will output a newly created dataset organised by sensor ID. Each
 This sensor information is then displayed on the dashboard.
 
 ## Data
-### Original dataset
+### Original data set
 The original data provided by SafetyCulture was placed in a [javascript file](./src/data/sensorData.js).
 
-From this file I have filtered the original dataset to create individual datasets (arrays) that are specific to each sensor ID.
+From this file, I have filtered the original dataset to create individual datasets (arrays) that are specific to each sensor ID.
 
 These sensor ID specific arrays were then exported to be used in the rest of the application.
 
-### Modified dataset
+### Modified data set
 
-The modified dataset in JSON format as specified in the overview has been completed in [sensorDataOverview.js](./src/data/sensorDataOverview.js).
+The modified data set in JSON format as specified in the overview has been completed in [sensorDataOverview.js](./src/data/sensorDataOverview.js).
 
 An array that contains each sensor's average, median, and mode temperatures is exported from the above file. Utility functions were used. Please see below.
 
@@ -80,15 +81,41 @@ The following utility functions were manually created to determine the average, 
 * [calculateAverage](./src/utility/calculateAverage.js)
 * [calculateMedian](./src/utility/calculateMedian.js)
 * [calculateMode](./src/utility/calculateMode.js)
+
+Additional utility functions:
 * [determineDataSetIds](./src/utility/determineDataSetIds.js)
 * [generateTemperaturesArray](./src/utility/generateTemperaturesArray.js)
+
+### determineDataSetIds
+This utility function was added to set up the app to create a unique array of objects by ID. 
+* E.g. `["a", "b", "c"]`
+
+This unique array will then be used for the Sensor class (see below).
+
+
+### generateTemperaturesArray
+The generateTemperaturesArray function was added to assist the Sensor class to pass in an array of temperatures for the utility functions to use (i.e. a list of temperature values are needed to calculate the average, median, and mode values). 
+
+## Classes
+
+### Sensor
+The [Sensor](./src/classes/Sensor.js) class was built to create and return unique sensor objects into an array.
+* The `calculateAverage`, `calculateMedian`, and `calculateMode` utility functions are used by the Sensor class to determine the average, median, and mode temperature values.
+* The `generateTemperaturesArray` return value is passed as an argument to the above calculation functions.
+* The `determineDataSetIds` function was used to numerically create a new and unique instance of the Sensor class. 
+
+This is to generate the specified output format:
+
+```
+[{"id":"c","average":3.72,"median":3.95,"mode":[3.36,3.96]}, {"id":"a","average":3.78,"median":3.65,"mode":[3.53]}, {"id":"b","average":4.08,"median":4.14,"mode":[4.15]}]
+```
 
 # Documentation
 
 ## Assumptions
 1. While the original dataset was hardcoded and expected to be read via a file, this application can easily be refactored to execute a HTTP request to SafetyCulture's sensor API. The dataset can be saved to state and relevant data can be passed via props.
 2. The temperature data will be given in the correct format (e.g. degrees celsius).
-3. Sensors will/can capture other data. The app was build and structured in such a way that new components can be easily rendered to account for new/other data.
+3. Sensors will/can capture other data. The app was built and structured in such a way that new components can be easily rendered to account for new/other data.
 4. Sensors may capture data other than temperature that require the calculation of averages, medians, and modes. Therefore utility functions were created instead. 
 
 ## Design decisions
@@ -121,7 +148,7 @@ E.g. The trello board at one point in time:
 
 ### Responsive design
 SafetyCulture is a mobile application driven company and their customers use their smartphones to use the products. 
-Therefore, this application was build to be responsive so users can check sensor data on their smartphones. 
+Therefore, this application was built to be responsive so users can check sensor data on their smartphones. 
 
 ### Utility functions
 As mentioned earlier, to keep this application's codebase efficient and to uphold the principle of DRY, a utility folder containing functions that have useful and general functionality, can be used across the application.
@@ -131,10 +158,10 @@ React was used in conjunction with JavaScript to build this application. React w
 
 Specifically, within the scope of this application, the components and props, enable effective and efficient rendering of the dataset. Furthermore, by reusing components, this can assist in designing for scalability. 
 
-Although, this was not a requirement, I wanted to build an application that could potentially be used by users. Therefore, a simple MVP was built. 
+Although this was not a requirement, I wanted to build an application that could potentially be used by users. Therefore, a simple MVP was built. 
 
 ### Notes
-Within the application, I tried to apply "self documenting" code as much as possible, so other develoeprs can easily and quickly understand it and further develop it if needed. On top of this, it keeps the application clean and efficient. In areas that I felt could use a little more explanation, comments were left. 
+Within the application, I tried to apply "self-documenting" code as much as possible, so other developers can easily and quickly understand it and further develop it if needed. On top of this, it keeps the application clean and efficient. In areas that I felt could use a little more explanation, comments were left. 
 
 The buttons on the sensor cards serve no functionality at the moment. In the future, they are intended to show details of the specific sensor in greater detail. For now, they are there as a visual aid.
 
