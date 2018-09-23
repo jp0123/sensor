@@ -80,6 +80,8 @@ The following utility functions were manually created to determine the average, 
 * [calculateAverage](./src/utility/calculateAverage.js)
 * [calculateMedian](./src/utility/calculateMedian.js)
 * [calculateMode](./src/utility/calculateMode.js)
+* [determineDataSetIds](./src/utility/determineDataSetIds.js)
+* [generateTemperaturesArray](./src/utility/generateTemperaturesArray.js)
 
 # Documentation
 
@@ -150,5 +152,7 @@ No other dependencies were used to keep this application as independent and robu
 * <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map" target="_blank">MDN | Array Map</a>
 * <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter" target="_blank">MDN | Array Filter</a>
 * <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce" target="_blank">MDN | Array Reduce</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set" target="_blank">MDN | Array.from()</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set" target="_blank">MDN | Set</a>
 * <a href="https://reactjs.org/" target="_blank">React | ReactJS</a>
 * <a href="https://github.com/facebook/create-react-app" target="_blank">React | create-react-app</a>
