@@ -1,36 +1,54 @@
-import { sensorA, sensorB, sensorC } from "./sensorData";
+import data from "./sensorData";
+import Sensor from "../classes/Sensor";
+import determineDataSetIds from "../utility/determineDataSetIds";
 import calculateAverage from "../utility/calculateAverage";
 import calculateMedian from "../utility/calculateMedian";
 import calculateMode from "../utility/calculateMode";
 import generateTemperaturesArray from "../utility/generateTemperaturesArray";
 
-const sensorDataOverview = [];
+// Organise data set by sensor ID
+const sensorDataById = []; // Contains an array of objects that contain sensor id specific data
+const sensorIds = determineDataSetIds(data); // Array of unique ids
+sensorIds.forEach(id => {
+  const sensorData = data.filter(sensor => {
+    return sensor.id === id;
+  })
+  sensorDataById.push(sensorData);
+});
 
-// Sensor A
-const sensorAData = {};
-const temperatureDataSensorA = generateTemperaturesArray(sensorA)
-sensorAData.id = sensorA[0].id;
-sensorAData.average = calculateAverage(temperatureDataSensorA);
-sensorAData.median = calculateMedian(temperatureDataSensorA);
-sensorAData.mode = calculateMode(temperatureDataSensorA);
+// Output sensor overview 
+let sensorDataOverview = []; // Contains each sensor's id, average, median and mode values
+sensorDataById.forEach(sensor => {
+  const sensorId = sensor[0].id;
+  const temperatures = generateTemperaturesArray(sensor);
+  sensorDataOverview.push(new Sensor(
+    sensorId,
+    calculateAverage(temperatures),
+    calculateMedian(temperatures),
+    calculateMode(temperatures)
+  ));
+})
 
-// Sensor B
-const sensorBData = {};
-const temperatureDataSensorB = generateTemperaturesArray(sensorB)
-sensorBData.id = sensorB[0].id;
-sensorBData.average = calculateAverage(temperatureDataSensorB);
-sensorBData.median = calculateMedian(temperatureDataSensorB);
-sensorBData.mode = calculateMode(temperatureDataSensorB);
+sensorDataOverview = sortSensorDataOverviewByPriority(sensorDataOverview);
 
-// Sensor C
-const sensorCData = {};
-const temperatureDataSensorC = generateTemperaturesArray(sensorC)
-sensorCData.id = sensorC[0].id;
-sensorCData.average = calculateAverage(temperatureDataSensorC);
-sensorCData.median = calculateMedian(temperatureDataSensorC);
-sensorCData.mode = calculateMode(temperatureDataSensorC);
+function sortSensorDataOverviewByPriority(arrayOfSensors) {
+  const sortedArray = arrayOfSensors.sort((a, b) => {
+    const prioritySensors = ["c", "a", "b"];
+    const prioritySensorsArrayLength = prioritySensors.length; // Required to ensure sorting continues to work if more priority sensors are added to the list
+    const sensorA = a.id;
+    const sensorB = b.id;
+    let priorityLevelA = prioritySensors.indexOf(sensorA);
+    let priorityLevelB = prioritySensors.indexOf(sensorB);
 
-// Create modified sensor data
-sensorDataOverview.push(sensorCData, sensorAData, sensorBData);
+    // indexOf() returns -1 if element is not found in array. This affects .sort().
+    if (priorityLevelA === -1) { priorityLevelA = prioritySensorsArrayLength; };
+    if (priorityLevelB === -1) { priorityLevelB = prioritySensorsArrayLength; };
+    // Sorting procedure
+    if (priorityLevelA < priorityLevelB) { return -1 };
+    if (priorityLevelA > priorityLevelB) { return 1 };
+    return 0;
+  });
+  return sortedArray;
+}
 
 export default sensorDataOverview;

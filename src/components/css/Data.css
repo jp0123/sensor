@@ -1,0 +1,12 @@
+.data-info-text {
+  color: #767676;
+  font-size: 1.15rem;
+}
+
+.data-info-title {
+  font-weight: bold;
+}
+
+.data-info-value {
+  text-align: center;
+}

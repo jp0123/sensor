@@ -1,13 +1,14 @@
-import React from 'react'
+import React from 'react';
 import {
   Col, Card, Button, CardHeader, CardBody,
   CardTitle
 } from 'reactstrap';
 import Data from './Data';
+import "./css/Sensor.css";
 
 const Sensor = ({ id, averageTemperature, medianTemperature, modeTemperature }) => {
   const sensorId = `Sensor ${id}`;
-  const infoType = `Temperature`;
+  const infoTypeTemperature = `Temperature`;
   const infoTitleAverage = `Average`;
   const infoTitleMedian = `Median`;
   const infoTitleMode = `Mode`;
@@ -18,7 +19,7 @@ const Sensor = ({ id, averageTemperature, medianTemperature, modeTemperature }) 
       <Card className="sensor-card">
         <CardHeader tag="h3" className="text-headers text-center sensor-header">{sensorId}</CardHeader>
         <CardBody>
-          <CardTitle className="text-headers sensor-info-title">{infoType}</CardTitle>
+          <CardTitle className="text-headers sensor-info-title">{infoTypeTemperature}</CardTitle>
           <Data title={infoTitleAverage} data={averageTemperature} />
           <Data title={infoTitleMedian} data={medianTemperature} />
           <Data title={infoTitleMode} data={modeTemperature} />
